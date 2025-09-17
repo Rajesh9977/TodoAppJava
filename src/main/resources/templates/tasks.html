@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tasks</title>
+</head>
+<body>
+<h1>Task List</h1>
+<form action="/" method="post">
+    <div>
+        <input type="text" name="title" placeholder="Add a new Task.." required>
+    </div>
+    <div>
+        <button type="submit">Add</button>
+    </div>
+</form>
+
+<p th:if="${#lists.isEmpty(tasks)}">No tasks found.</p>
+
+<ul>
+    <li th:each="task : ${tasks}" th:text="${task?.title}">Task Title</li>
+</ul>
+</body>
+</html>
